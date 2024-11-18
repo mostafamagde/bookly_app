@@ -5,5 +5,25 @@ class AppThemeManager {
   static ThemeData mainTheme = ThemeData(
     scaffoldBackgroundColor: Constants.primaryColor,
     primaryColor: Constants.primaryColor,
+    textTheme: const TextTheme(
+      titleMedium: TextStyle(
+        fontFamily: Constants.fontFamily,
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+        color: Colors.white,
+      ),
+      displayMedium: TextStyle(
+        fontSize: 14,
+        color: Color(0xFF707070),
+        fontWeight: FontWeight.w500,
+        fontFamily: Constants.fontFamily,
+      ),
+      bodyMedium: TextStyle(
+        fontFamily: Constants.fontFamily,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        fontSize: 20,
+      ),
+    ),
   );
 }
