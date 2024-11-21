@@ -3,7 +3,8 @@ import 'package:bookly_app/core/utils/constants.dart';
 import 'package:bookly_app/features/home_view/presentation/views/home_page.dart';
 import 'package:bookly_app/features/splash_view/presentaion/views/widgets/AnimatedBuilder.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import '../../../../../core/routes_manager/routes_names.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -49,10 +50,8 @@ class _SplashBodyState extends State<SplashBody>
   void navigatingToHome() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => Get.to(
-        const HomeView(),
-        duration: Constants.transitionDuration,
-        transition: Transition.fade,
+      () => Navigator.pushNamed(context,
+        RoutesNames.homeView,
       ),
     );
   }

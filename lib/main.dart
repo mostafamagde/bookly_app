@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'core/app_theme/app_theme_manager.dart';
 import 'core/routes_manager/route_generator.dart';
@@ -14,10 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       theme: AppThemeManager.mainTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: RoutesNames.splashView,
       onGenerateRoute: RouteGenerator.generateRoutes,
     );
   }
