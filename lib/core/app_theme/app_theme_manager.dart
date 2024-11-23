@@ -24,6 +24,12 @@ class AppThemeManager {
         color: Colors.white,
         fontSize: 20,
       ),
+      titleLarge: TextStyle(
+        fontSize: 30,
+        color: Colors.white,
+        fontWeight:   FontWeight.normal,
+        fontFamily: Constants.fontFamily,
+      )
     ),
   );
 }

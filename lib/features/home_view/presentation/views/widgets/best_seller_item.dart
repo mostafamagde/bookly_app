@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/routes_manager/routes_names.dart';
 import '../../../../../core/utils/assets.dart';
+import 'book_rating.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({super.key});
@@ -16,7 +16,7 @@ class BestSellerItem extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 20, top: 10),
+            padding: const EdgeInsets.only(left: 20, top: 10),
             child: SizedBox(
               height: 125,
               child: AspectRatio(
@@ -62,27 +62,11 @@ class BestSellerItem extends StatelessWidget {
                         style: theme.textTheme.bodyMedium,
                       ),
                       Spacer(),
-                      Icon(
-                        FontAwesomeIcons.solidStar,
-                        color: Color(0xFFFFDD4F),
-                      ),
-                      SizedBox(
-                        width: 6.3,
-                      ),
-                      Text(
-                        "4.8",
-                        style:
-                            theme.textTheme.titleMedium?.copyWith(fontSize: 16),
-                      ),
-                      SizedBox(
-                        width: 9,
-                      ),
-                      Text(
-                        "(2390)",
-                        style: theme.textTheme.displayMedium,
-                      ),
+                      BookRating(),
+
                     ],
-                  )
+                  ),
+
                 ],
               ),
             ),
@@ -92,3 +76,4 @@ class BestSellerItem extends StatelessWidget {
     );
   }
 }
+
