@@ -29,6 +29,13 @@ class AppThemeManager {
         color: Colors.white,
         fontWeight:   FontWeight.normal,
         fontFamily: Constants.fontFamily,
+      ),
+      labelMedium: TextStyle(
+        fontSize: 16,
+        color: Colors.white,
+        fontWeight:   FontWeight.bold,
+        fontFamily: Constants.fontFamily,
+
       )
     ),
   );

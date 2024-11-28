@@ -35,7 +35,7 @@ class BestSellerItem extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(left: 30, right: 51),
+              padding: const EdgeInsets.only(left: 30, right: 51),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -48,7 +48,7 @@ class BestSellerItem extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  SizedBox(
+                    const SizedBox(
                     height: 3,
                   ),
                   Text(
@@ -61,8 +61,8 @@ class BestSellerItem extends StatelessWidget {
                         "19.99 €",
                         style: theme.textTheme.bodyMedium,
                       ),
-                      Spacer(),
-                      BookRating(),
+                      const Spacer(),
+                      const BookRating(),
 
                     ],
                   ),

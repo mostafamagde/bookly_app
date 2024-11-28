@@ -1,7 +1,9 @@
 import 'package:bookly_app/features/home_view/presentation/views/widgets/book_rating.dart';
+import 'package:bookly_app/features/home_view/presentation/views/widgets/you_can_like_list_view.dart';
 import 'package:flutter/material.dart';
 
 import 'book_details_app_bar.dart';
+import 'custom_button.dart';
 import 'custom_list_item.dart';
 
 class BookDetailsBody extends StatelessWidget {
@@ -43,7 +45,49 @@ class BookDetailsBody extends StatelessWidget {
             const SizedBox(
               height: 14,
             ),
-         const BookRating(mainAxisAlignment: MainAxisAlignment.center,),
+            const BookRating(
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            const SizedBox(
+              height: 37,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomButton(
+                    border: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                    ),
+                    containerColor: Colors.white,
+                    text: "19.99€",
+                    textColor: Colors.black),
+                CustomButton(
+                  border: BorderRadius.only(
+                    topRight: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
+                  containerColor: Color(0xFFEF8262),
+                  text: "Free preview",
+                  textColor: Colors.white,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 49,
+            ),
+            Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "You can also like",
+                  style: theme.textTheme.displayMedium?.copyWith(
+                    color: Colors.white
+                  ),
+                ),
+            ),
+            const SizedBox(height: 16,),
+            const YouCanLikeListView()
+
           ],
         ),
       ),
