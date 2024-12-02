@@ -1,4 +1,3 @@
-import 'IndustryIdentifiers.dart';
 import 'ReadingModes.dart';
 import 'PanelizationSummary.dart';
 import 'ImageLinks.dart';
@@ -10,7 +9,6 @@ class VolumeInfo {
       this.publisher, 
       this.publishedDate, 
       this.description, 
-      this.industryIdentifiers, 
       this.readingModes, 
       this.pageCount, 
       this.printType, 
@@ -31,12 +29,6 @@ class VolumeInfo {
     publisher = json['publisher'];
     publishedDate = json['publishedDate'];
     description = json['description'];
-    if (json['industryIdentifiers'] != null) {
-      industryIdentifiers = [];
-      json['industryIdentifiers'].forEach((v) {
-        industryIdentifiers?.add(IndustryIdentifiers.fromJson(v));
-      });
-    }
     readingModes = json['readingModes'] != null ? ReadingModes.fromJson(json['readingModes']) : null;
     pageCount = json['pageCount'];
     printType = json['printType'];
@@ -56,7 +48,6 @@ class VolumeInfo {
   String? publisher;
   String? publishedDate;
   String? description;
-  List<IndustryIdentifiers>? industryIdentifiers;
   ReadingModes? readingModes;
   int? pageCount;
   String? printType;
@@ -78,9 +69,6 @@ class VolumeInfo {
     map['publisher'] = publisher;
     map['publishedDate'] = publishedDate;
     map['description'] = description;
-    if (industryIdentifiers != null) {
-      map['industryIdentifiers'] = industryIdentifiers?.map((v) => v.toJson()).toList();
-    }
     if (readingModes != null) {
       map['readingModes'] = readingModes?.toJson();
     }

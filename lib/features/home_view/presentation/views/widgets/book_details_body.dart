@@ -21,7 +21,7 @@ class BookDetailsBody extends StatelessWidget {
             const BookDetailsAppBar(),
             SizedBox(
               width: media.width * .54,
-              child: const CustomBookItem(),
+              child: const CustomBookItem(imageUrl: "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fimage&psig=AOvVaw2w4Yb-7varFcHUURVpBq80&ust=1733186414760000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNjUoNbsh4oDFQAAAAAdAAAAABAE",),
             ),
             const SizedBox(
               height: 40,
@@ -47,6 +47,8 @@ class BookDetailsBody extends StatelessWidget {
             ),
             const BookRating(
               mainAxisAlignment: MainAxisAlignment.center,
+              ratingCount: "5",
+              rating: "10",
             ),
             const SizedBox(
               height: 37,

@@ -1,11 +1,15 @@
+import 'package:bookly_app/features/home_view/data/models/BookModel.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/routes_manager/routes_names.dart';
 import '../../../../../core/utils/assets.dart';
 import 'book_rating.dart';
+import 'custom_list_item.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
+  const BestSellerItem({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +23,8 @@ class BestSellerItem extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20, top: 10),
             child: SizedBox(
               height: 125,
-              child: AspectRatio(
-                aspectRatio: 2.5 / 4,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        AssetsData.testImage,
-                      ),
-                    ),
-                  ),
-                ),
+              child: CustomBookItem(
+                imageUrl: bookModel.volumeInfo!.imageLinks!.smallThumbnail!,
               ),
             ),
           ),
@@ -42,13 +37,13 @@ class BestSellerItem extends StatelessWidget {
                   SizedBox(
                     width: media.width * .5,
                     child: Text(
-                      "Harry Potter and the Goblet Fire",
+                      bookModel.volumeInfo!.title!,
                       style: theme.textTheme.titleMedium,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                    const SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   Text(
@@ -58,15 +53,17 @@ class BestSellerItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "19.99 €",
+                        "Free",
                         style: theme.textTheme.bodyMedium,
                       ),
                       const Spacer(),
-                      const BookRating(),
-
+                      BookRating(
+                        rating: bookModel.volumeInfo?.language ?? "0",
+                        ratingCount:
+                            bookModel.volumeInfo?.language ?? "0",
+                      ),
                     ],
                   ),
-
                 ],
               ),
             ),
@@ -76,4 +73,3 @@ class BestSellerItem extends StatelessWidget {
     );
   }
 }
-
