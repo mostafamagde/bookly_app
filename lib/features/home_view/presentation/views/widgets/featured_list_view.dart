@@ -2,6 +2,7 @@ import 'package:bookly_app/features/home_view/presentation/views/widgets/custom_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/routes_manager/routes_names.dart';
 import '../../manager/featured_books_cubit/featured_books_cubit.dart';
 
 class FeaturedListView extends StatelessWidget {
@@ -21,9 +22,15 @@ class FeaturedListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: CustomBookItem(
-                    imageUrl: state
-                        .books[index].volumeInfo!.imageLinks!.thumbnail!,
+                  child: InkWell(
+                    onTap: () => Navigator.pushNamed(
+                        context, RoutesNames.detailsView,
+                        arguments:
+                            state.books[index]),
+                    child: CustomBookItem(
+                      imageUrl:
+                          state.books[index].volumeInfo!.imageLinks!.thumbnail!,
+                    ),
                   ),
                 );
               },

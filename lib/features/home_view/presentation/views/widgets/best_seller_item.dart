@@ -15,61 +15,58 @@ class BestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     var media = MediaQuery.of(context).size;
-    return InkWell(
-      onTap: () => Navigator.pushNamed(context, RoutesNames.detailsView),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 10),
-            child: SizedBox(
-              height: 125,
-              child: CustomBookItem(
-                imageUrl: bookModel.volumeInfo!.imageLinks!.smallThumbnail!,
-              ),
+    return Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20, top: 10),
+          child: SizedBox(
+            height: 125,
+            child: CustomBookItem(
+              imageUrl: bookModel.volumeInfo!.imageLinks!.smallThumbnail!,
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30, right: 51),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: media.width * .5,
-                    child: Text(
-                      bookModel.volumeInfo!.title!,
-                      style: theme.textTheme.titleMedium,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30, right: 51),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: media.width * .5,
+                  child: Text(
+                    bookModel.volumeInfo!.title!,
+                    style: theme.textTheme.titleMedium,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                Text(
+                  "J.K. Rowling",
+                  style: theme.textTheme.displayMedium,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Free",
+                      style: theme.textTheme.bodyMedium,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    "J.K. Rowling",
-                    style: theme.textTheme.displayMedium,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Free",
-                        style: theme.textTheme.bodyMedium,
-                      ),
-                      const Spacer(),
-                      BookRating(
-                        rating: bookModel.volumeInfo?.language ?? "0",
-                        ratingCount:
-                            bookModel.volumeInfo?.language ?? "0",
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    const Spacer(),
+                    BookRating(
+                      rating: bookModel.volumeInfo?.language ?? "0",
+                      ratingCount:
+                          bookModel.volumeInfo?.language ?? "0",
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

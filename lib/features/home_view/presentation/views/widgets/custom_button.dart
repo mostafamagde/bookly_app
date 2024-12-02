@@ -6,19 +6,20 @@ class CustomButton extends StatelessWidget {
       required this.border,
       required this.containerColor,
       required this.text,
-      required this.textColor});
+      required this.textColor, this.onPressed});
 
   final BorderRadiusGeometry border;
   final Color containerColor;
   final Color textColor;
   final String text;
+  final void Function(  )? onPressed;
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return InkWell(
       borderRadius: BorderRadius.circular(10),
-      onTap: () {},
+      onTap: onPressed,
       child: Container(
         height: 48,
         width: 150,

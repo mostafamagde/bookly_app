@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/routes_manager/routes_names.dart';
 import '../../manager/newest_books_cubit/newest_books_cubit.dart';
 import 'best_seller_item.dart';
 
@@ -17,8 +18,15 @@ class BestSellerListView extends StatelessWidget {
           );
         } else if (state is NewestBooksSuccess) {
           return ListView.builder(
-            itemBuilder: (context, index) => BestSellerItem(
-              bookModel: state.books[index],
+            itemBuilder: (context, index) => InkWell(
+              onTap: () => Navigator.pushNamed(
+                context,
+                RoutesNames.detailsView,
+                arguments:  state.books[index],
+              ),
+              child: BestSellerItem(
+                bookModel: state.books[index],
+              ),
             ),
             itemCount: state.books.length,
             physics: const NeverScrollableScrollPhysics(),
